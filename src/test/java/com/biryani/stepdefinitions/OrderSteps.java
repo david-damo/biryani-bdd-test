@@ -46,7 +46,8 @@ public class OrderSteps {
     }
 
     @Then("I should see the order status as {string}")
-    public void i_should_see_the_order_status_as(String status) {
+    public void i_should_see_the_order_status_as(String status) throws InterruptedException {
+    	Thread.sleep(1000);
         WebElement statusElement = driver.findElement(By.xpath("//h2[text()='Order Status']"));//.id("orderStatus"));
         assertTrue(statusElement.getText().contains(status));
         driver.quit();
